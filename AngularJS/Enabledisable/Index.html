@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="angular.js"></script>
+    <script src="AngScript.js"></script>
+</head>
+<body ng-app="MyFirstmodule">
+    <div ng-controller="MyController">
+
+        <h1>  {{title}}  </h1>
+
+
+     <input type="checkbox" ng-model = "ew" />Disable me
+        <button ng-disabled="ew">Click Me!</button>
+
+
+
+        <input type="checkbox" ng-model="showHide1">Show Button
+        <button ng-show="showHide1">Click Me!</button>
+
+        <input type="checkbox" ng-model="showHide2">Hide Button
+        <button ng-hide="showHide2">Click Me!</button>
+
+
+        <p>Total click: {{ clickCounter }}</p>
+        <button ng-click="clickCounter = clickCounter + 1">Click Me!</button>
+    </div>
+
+
+</body>
+</html>

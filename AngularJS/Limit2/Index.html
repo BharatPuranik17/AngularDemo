@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="angular.js"></script>
+    <script src="AngScript.js"></script>
+</head>
+<body ng-app="MyFirstmodule">
+    <div ng-controller="MyController">
+
+        <h1>  {{title}}  </h1>
+        <input type="number" step="1" min="0" max="5" ng-model="limit" />
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last name</th>
+                    <th>Gender</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="emp in employee | limitTo:limit">
+                    <td>{{ emp.firstname }}</td>
+                    <td>{{ emp.Lastname }}</td>
+                    <td>{{ emp.gender }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+
+
+</html>
+<style>
+    table, th, td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+</style>
