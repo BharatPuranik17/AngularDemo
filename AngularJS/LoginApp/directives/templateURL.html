@@ -1,0 +1,32 @@
+﻿<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
+
+
+
+<div class="simple-pagination">
+    <p class="simple-pagination__items">Showing {{pagination.pageLimit}} out of {{pagination.total}}</p>
+    <p>
+        <button ng-click="pagination.previousPage()" ng-disabled="pagination.currentPage <= 0" class="simple-pagination__button simple-pagination__button--prev">
+            &#10094;
+        </button>
+        <span class="simple-pagination__pages">{{pagination.currentPage + 1}} of {{pagination.getTotalPages()}}</span>
+        <button ng-click="pagination.nextPage()" ng-disabled="pagination.currentPage === (pagination.getTotalPages() - 1)" class="simple-pagination__button simple-pagination__button--next">
+            &#10095;
+        </button>
+    </p>
+    <p class="simple-pagination__page-limit">
+        <span class="simple-pagination__page-limit__option" ng-repeat="limit in pagination.pageLimits" ng-if="limit < pagination.total">
+            <a href="" ng-click="pagination.setItemsPerPages(limit)" ng-class="{'active': pagination.isCurrentPageLimit(limit)}">{{limit}}</a>
+        </span>
+        <span>
+            <a href="" ng-click="pagination.setItemsPerPages(pagination.total)" ng-class="{'active': pagination.isCurrentPageLimit(pagination.total)}">All</a>
+        </span>
+    </p>
+</div>
