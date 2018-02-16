@@ -15,7 +15,7 @@ myapp.factory("MyFactory", function () {
     var saveNote = function (newNoteObj, LoggedInUserObj, index, operation, noteIndex) {
         //code
         debugger
-        users = localStorage.getItem('user');
+     var  users = localStorage.getItem('user');
         users = users ? JSON.parse(users) : [];
         if (LoggedInUserObj.Notelist == undefined) {
             LoggedInUserObj.Notelist = [];
