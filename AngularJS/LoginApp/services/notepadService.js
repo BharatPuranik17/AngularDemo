@@ -12,7 +12,7 @@ myapp.factory("MyFactory", function () {
         return currentUserInfo[index].Notelist;
     };
 
-    var saveNote = function (newNoteObj, LoggedInUserObj, index) {
+    var saveNote = function (newNoteObj, LoggedInUserObj, index, operation, noteIndex) {
         //code
         debugger
         users = localStorage.getItem('user');
@@ -20,10 +20,20 @@ myapp.factory("MyFactory", function () {
         if (LoggedInUserObj.Notelist == undefined) {
             LoggedInUserObj.Notelist = [];
         }
-        LoggedInUserObj.Notelist.push(newNoteObj);//add note to existing logged in user
+        if (operation == "Add") {
+            LoggedInUserObj.Notelist.push(newNoteObj);//add note to existing logged in user
+        }
+        if (operation == "Update") {
+            LoggedInUserObj.Notelist.splice(noteIndex, 1);
+            LoggedInUserObj.Notelist.push(newNoteObj);
+        }
+        if (operation == "Delete") {
+            LoggedInUserObj.Notelist.splice(noteIndex, 1);
+        }
+
         users[index] = LoggedInUserObj;
         localStorage.setItem("user", JSON.stringify(users));
-        return true;
+        return LoggedInUserObj;
     };
 
     debugger
